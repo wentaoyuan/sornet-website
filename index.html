@@ -21,7 +21,8 @@
   <body>
     <br>
     <center>
-      <h1 class="title"><b>SORNet</b>: Spatial Object-Centric Representations for Sequential Manipulation</h1>
+      <h1 class="suptitle">SORNet</h1>
+      <h1 class="title">Spatial Object-Centric Representations for Sequential Manipulation</h1>
     </center>
 
     <br>
@@ -68,30 +69,23 @@
     </div>
     <br>
 
-    <div class="container grey_container">
-      <center><h2 class="sectitle">Overview Video</h2></center>
-        <div class="container video_container" align=center>
-          <iframe width="800" height="450" src="https://www.youtube.com/embed/MdqeLXrDpME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-
     <div class="container">
-      <center><h2 class="sectitle">Abstract</h2></center>
-      <p class="text">
-        Sequential manipulation tasks require a robot to perceive the state of an environment and plan a sequence of actions leading to a desired goal state, where the ability to reason about spatial relationships among object entities from raw sensor inputs is crucial. Prior works relying on explicit state estimation or end-to-end learning struggle with novel objects. 
-      </p>
-      <p class="text">
-        In this work, we propose <b>SORNet</b> (<b>S</b>patial <b>O</b>bject-Centric <b>R</b>epresentation <b>Net</b>work), which extracts object-centric representations from RGB images conditioned on canonical views of the objects of interest. We show that the object embeddings learned by SORNet generalize <i>zero-shot</i> to <i>unseen</i> object entities on three spatial reasoning tasks: spatial relationship classification, skill precondition classification and relative direction regression, significantly outperforming baselines. Further, we present real-world robotic experiments demonstrating the usage of the learned object embeddings in task planning for sequential manipulation.
-      </p>
+      <center><h2 class="sectitle">Overview</h2></center>
+        <p class="text">
+          Sequential manipulation tasks require a robot to constantly reason about spatial relationships among entities in the scene. Prior works relying on explicit state estimation or end-to-end learning struggle with novel objects or novel tasks. Thus, we propose <b>SORNet</b> (<b>S</b>patial <b>O</b>bject-Centric <b>R</b>epresentation <b>Net</b>work), which enables <i>zero-shot</i> generalization to <i>unseen</i> objects on spatial reasoning tasks.
+        </p>
+        <div class="container widget_container">
+          <iframe width=100% height="500" src="https://www.youtube.com/embed/MdqeLXrDpME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
 
     <div class="container grey_container">
       <center><h2 class="sectitle">Spatial Object Centric Network</h2></center>
       <p class="text">
-        SORNet extracts an object-centric embedding vector for each query object via a series of attention layers, conditioned on a canonical view of the object. The embedding vector captures information about the object's spatial relationship with other entities in the environment. The number and appearance of query objects need not match the number and appearance of objects in the input canonical view; they can be from different scenes with different lighting, for example.
+        SORNet consists of two parts. The embedding network extracts object-centric embeddings from RGB images conditioned on canonical views of the objects of interest. The redaout network takes the embedding vectors and predicts discrete or continuous spatial relations among entities in the scene. Note that the object queries (canonical object views) can be captured in scenarios different from the input image (e.g. with different lighting and camera view).
       </p>
       <div class="container widget_container">
-        <img width="100%" src="images/network_architecture.png"/>
+        <img width="100%" src="images/architecture.png"/>
       </div>
     </div>
 
@@ -101,19 +95,17 @@
         The object-centric embedding produced by SORNet enables zero-shot generalization to unseen objects on a variety of downstream tasks, including predicting spatial relationships, classifying skill preconditions and regressing relative direction from the end-effector to the object center.
       </p>
       <div class="container widget_container">
-        <img width="100%" src="images/CLEVR_valB_004000.png"/>
+        <img width="100%" src="images/CLEVR.png"/>
       </div>
       <center><p class="caption">Spatial Relationship Prediction on <a href="https://cs.stanford.edu/people/jcjohns/clevr">CLEVR-CoGenT</a></p></center>
       <div class="container widget_container">
-        <img width="100%" src="images/image000003.png"/>
+        <img width="100%" src="images/real_world.png"/>
       </div>
       <center><p class="caption">Skill Precondition Classification in a real-world tabletop manipulation scene</p></center>
       <div class="container widget_container">
-        <img width="30%" src="images/3302_0_ee_green_block.gif"/>
-        <img width="30%" src="images/5377_0_ee_green_block.gif"/>
-        <img width="30%" src="images/3302_1_ee_green_block.gif"/>
+        <img width="50%" src="images/visual_servoing.gif"/>
       </div>
-      <center><p class="caption">Visuo Servoing using predicted 3D direction from the end-effector to the object center</p></center>
+      <center><p class="caption">Visual Servoing using predicted 3D direction from the end-effector to the object center</p></center>
     </div>
 
     <div class="container grey_container"><td>
@@ -123,13 +115,11 @@
           <td align=center width=50%>
             <a href="https://arxiv.org/abs/2109.03891">
               <img class="layered-paper-big" width=40% src="images/page1.png"/>
-              <!-- <p class="text">Paper<br>(arXiv)</p> -->
             </a>
           </td>
           <td align=center width=50%>
-            <a href="https://github.com/wentaoyuan">
+            <a href="https://github.com/wentaoyuan/sornet">
               <img width=50% src="images/github.png"/>
-              <!-- <p class="text">Code<br>(coming soon)</p> -->
             </a>
           </td>
         </tr>
@@ -139,13 +129,13 @@
     <div class="container">
       <center><h2 class="sectitle">Citation</h2></center>
       <div class="text citation">
-        @inproceedings{
-          &nbsp; &nbsp; yuan2021sornet,<br>
-          &nbsp; &nbsp; title={SORNet: Spatial Object-Centric Representations for Sequential Manipulation},<br>
-          &nbsp; &nbsp; author={Wentao Yuan and Chris Paxton and Karthik Desingh and Dieter Fox},<br>
-          &nbsp; &nbsp; booktitle={5th Annual Conference on Robot Learning },<br>
-          &nbsp; &nbsp; year={2021},<br>
-          &nbsp; &nbsp; url={https://openreview.net/forum?id=mOLu2rODIJF}<br>
+        @inproceedings{yuan2021sornet,<br>
+          &nbsp; &nbsp; title        = {SORNet: Spatial Object-Centric Representations for Sequential Manipulation},<br>
+          &nbsp; &nbsp; author       = {Wentao Yuan and Chris Paxton and Karthik Desingh and Dieter Fox},<br>
+          &nbsp; &nbsp; booktitle    = {5th Annual Conference on Robot Learning},<br>
+          &nbsp; &nbsp; pages        = {148--157},<br>
+          &nbsp; &nbsp; year         = {2021},<br>
+          &nbsp; &nbsp; organization = {PMLR}<br>
         }
       </div>
     </div>

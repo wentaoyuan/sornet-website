@@ -1,3 +1,14 @@
+.suptitle{
+    color:#4d4d4d;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:50px;
+    font-weight:700;
+    letter-spacing:4px;
+    line-height:65px;
+    margin-top:0;
+    margin-bottom:0;
+}
+
 .title{
     color:#333;
     font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -47,7 +58,7 @@
 .container{
     margin-left:auto;
     margin-right:auto;
-    max-width:1000px;
+    max-width:1100px;
 }
 
 .container:before,.container:after{
@@ -81,6 +92,11 @@
     font-size:14px;
     padding-top:25px;
     padding-bottom:25px;
+}
+
+img {
+    margin: auto;
+    display: block;
 }
 
 button {
